@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="userMenuFragment">
+<div class="row-main">
+    <div class="col">
+        <div class="row mb-3">
+            <table>
+                <colgroup>
+                    <col width = 25%>
+                    <col width = 25%>
+                    <col width = 25%>
+                    <col width = 25%>
+                </colgroup>
+                <div class="col">
+                    <thead id="userMenu" style="background-color: antiquewhite; text-align: center;">
+                        <tr>
+                            <td onclick="location.href='/home'">홈</td>
+                            <td onclick="location.href='/manage'">차량관리</td>
+                            <td onclick="location.href='/sales'">판매 정보 등록</td>
+                            <td onclick="location.href='/carList'">판매 목록</td>
+                        </tr>
+                    </thead>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+</th:block>
+</html>

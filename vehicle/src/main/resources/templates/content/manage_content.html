@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/main_layout}" >
+
+<th:block layout:fragment="content_css">
+    <!-- html 파일이 열릴 때 같이 실행되는 css -->
+    <!-- <link rel="stylesheet" href="/"> -->
+</th:block>
+
+<th:block layout:fragment="contentFragment">
+    <h3>- 차량등록</h3>
+    <div class="div-mb"></div>
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="" class="form-label"><strong>제조사</strong></label>
+            <select class="form-select" aria-label="Default select">
+                <option value="1" selected>현대</option>
+                <option value="2">기아</option>
+                <option value="3">대우</option>
+              </select>
+        </div>
+        <div class="col-md-4">
+          <label for="" class="form-label"><strong>모델명</strong></label>
+          <input type="text" class="form-control" id="">
+        </div>
+        <div class="col-md-4">
+            <label for="" class="form-label"><strong>차량가격</strong></label>
+            <input type="text" class="form-control" id="">
+        </div>
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-primary">등록</button>
+        </div>
+    </form>
+    <div class="div-mb"></div>
+    <h3>- 차량목록</h3>
+    <div class="div-mb"></div>
+    <table class="table table-striped">
+        <colgroup>
+            <col width="*">
+            <col width="40%">
+            <col width="40%">
+        </colgroup>
+        <thead>
+            <tr>
+                <td>모델번호</td>
+                <td>모델명</td>
+                <td>제조사</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</th:block>
+
+<th:block layout:fragment="content_js">
+    <!-- html 파일이 열릴 때 같이 실행되는 js -->
+    <!-- <script src="/"></script> -->
+</th:block>
+</html>

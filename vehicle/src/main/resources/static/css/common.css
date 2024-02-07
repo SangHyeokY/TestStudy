@@ -1,0 +1,9 @@
+#userMenu:hover{
+    cursor: pointer;
+}
+.div-mb{
+    margin-bottom: 2rem;
+}
+body{
+    color: rgb(75, 75, 75);
+}
