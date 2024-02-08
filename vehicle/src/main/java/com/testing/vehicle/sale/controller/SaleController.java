@@ -1,12 +1,20 @@
 package com.testing.vehicle.sale.controller;
 
+import com.testing.vehicle.sale.service.SaleService;
+import com.testing.vehicle.sale.service.SaleServiceImpl;
+import com.testing.vehicle.sale.vo.CarInfoVO;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
 public class SaleController {
+
+    @Resource(name="saleService")
+    private SaleServiceImpl saleService;
 
     //홈
     @GetMapping("/home")
@@ -14,10 +22,16 @@ public class SaleController {
         return "content/home_content";
     }
 
-    //차량관리
+    //차량관리 페이지 이동
     @GetMapping("/manage")
     public String manage(){
         return "content/manage_content";
+    }
+
+    //차량관리 페이지 (등록)
+    @PostMapping("/insertCar")
+    public void insertCar(CarInfoVO carInfoVO){
+        saleService.insertCar(carInfoVO);
     }
 
     //차량정보등록

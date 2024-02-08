@@ -5,7 +5,7 @@
 <mapper namespace="vehicleMapper">
 
     <resultMap id="carInfo" type="com.testing.vehicle.sale.vo.CarInfoVO">
-        <result column="MODEL_NUMBER" property="modelNubmer"/>
+        <result column="MODEL_NUMBER" property="modelNumber"/>
         <result column="MODEL_NAME" property="modelName"/>
         <result column="PRICE" property="price"/>
         <result column="MAKER" property="maker"/>
@@ -21,9 +21,20 @@
 
 
     <!-- 차량등록 -->
-<!--    <insert id="">-->
-<!--        -->
-<!--    </insert>-->
+    <insert id="insertCar">
+        INSERT INTO CAR_INFO (
+            MAKER
+            , MODEL_NAME
+            , PRICE
+            , MODEL_NUMBER
+        ) VALUES (
+            #{maker}
+            , #{modelName}
+            , #{price}
+            , #{modelNumber}
+        )
+    </insert>
+
 
 
 
