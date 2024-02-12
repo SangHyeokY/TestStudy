@@ -9,77 +9,59 @@
 </th:block>
 
 <th:block layout:fragment="contentFragment">
-
+    <label class="bottom-line">
+        <strong>
+            <h3>판매 목록</h3>
+        </strong>
+    </label>
+    <div class="div-mb"></div>
 <table id="carList-content-table" class="table table-hover">
     <colgroup>
-        <col width="14%">
-        <col width="14%">
-        <col width="14%">
-        <col width="14%">
+        <col width="5%">
         <col width="14%">
         <col width="14%">
         <col width="*">
+        <col width="14%">
+        <col width="14%">
+        <col width="14%">
     </colgroup>
     <thead>
         <tr>
-            <td rowspan="2">No.</td>
-            <td colspan="4">구매자정보</td>
-            <td colspan="2">차량정보</td>
+            <td rowspan="2"><strong>No</strong></td>
+            <td colspan="4"><strong>구매자정보</strong></td>
+            <td colspan="2"><strong>차량정보</strong></td>
         </tr>
         <tr>
-            <td>구매자명</td>
-            <td>연락처</td>
-            <td>구매일</td>
-            <td>색상</td>
-            <td>모델명</td>
-            <td>금액</td>
+            <td><strong>구매자명</strong></td>
+            <td><strong>연락처</strong></td>
+            <td><strong>구매일</strong></td>
+            <td><strong>색상</strong></td>
+            <td class="carList-td"><strong>모델명</strong></td>
+            <td><strong>금액</strong></td>
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr th:each="sales, state : ${salesList}">
             <td>
-                이
+                [[${state.index+1}]]
             </td>
             <td>
-                제
+                [[${sales.customerName}]]
             </td>
             <td>
-                여
+                [[${sales.customerTel}]]
             </td>
             <td>
-                기
+                [[${sales.salesDate}]]
             </td>
             <td>
-                에
+                [[${sales.carColor}]]
             </td>
             <td>
-                다
+                modelName
             </td>
             <td>
-                데
-            </td>
-        </tr>
-        <tr>
-            <td>
-                이
-            </td>
-            <td>
-                터
-            </td>
-            <td>
-                넣
-            </td>
-            <td>
-                어
-            </td>
-            <td>
-                보
-            </td>
-            <td>
-                자
-            </td>
-            <td>
-                !!!
+                price
             </td>
         </tr>
     </tbody>

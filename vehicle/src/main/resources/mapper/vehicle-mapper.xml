@@ -5,18 +5,19 @@
 <mapper namespace="vehicleMapper">
 
     <resultMap id="carInfo" type="com.testing.vehicle.sale.vo.CarInfoVO">
-        <result column="MODEL_NUMBER" property="modelNumber"/>
+        <id column="MODEL_NUMBER" property="modelNumber"/>
         <result column="MODEL_NAME" property="modelName"/>
         <result column="PRICE" property="price"/>
         <result column="MAKER" property="maker"/>
     </resultMap>
 
     <resultMap id="salesInfo" type="com.testing.vehicle.sale.vo.SalesInfoVO">
-        <result column="SALES_NUMBER" property="salesNumber"/>
+        <id column="SALES_NUMBER" property="salesNumber"/>
         <result column="CUSTOMER_NAME" property="customerName"/>
         <result column="CUSTOMER_TEL" property="customerTel"/>
         <result column="CAR_COLOR" property="carColor"/>
         <result column=" MODEL_NUMBER" property="modelNumber"/>
+        <result column="SALES_DATE" property="salesDate"/>
     </resultMap>
 
 
@@ -35,8 +36,47 @@
         )
     </insert>
 
+    <!-- 차량등록 / 리스트 표시 -->
+    <select id="selectCarList" resultMap="carInfo">
+    <!-- 모델번호, 모델이름, 제조사-->
+        SELECT MODEL_NUMBER
+            , MODEL_NAME
+            , MAKER
+        FROM CAR_INFO
+    </select>
 
+    <!--판매정보등록 -->
+    <!-- @@모델넘버 PK화, 모델명 넣기는 아직 못함 -->
+    <insert id="insertSales">
+        INSERT INTO SALES_INFO (
+            CUSTOMER_NAME
+            , CUSTOMER_TEL
+            , CAR_COLOR
+            , MODEL_NUMBER
+        ) VALUES (
+            #{customerName}
+            , #{customerTel}
+            , #{carColor}
+            , #{modelNumber}
+        )
+    </insert>
 
+    <!-- 판매목록 보여주기 -->
+    <!-- @@셀렉트문, join 써서 다 보여주기 -->
+    <select id="selectAllInfo" resultMap="salesInfo">
+        SELECT SALES.MODEL_NUMBER
+            , CUSTOMER_NAME
+            , CUSTOMER_TEL
+            , SALES_DATE
+            , CAR_COLOR
+
+            , MODEL_NAME
+            , PRICE
+        FROM SALES_INFO SALES INNER JOIN CAR_INFO CAR
+        ON SALES.MODEL_NUMBER = CAR.MODEL_NUMBER
+    </select>
+
+<!-- 모델넘버 연동이 안됨 -->
 
 
 </mapper>

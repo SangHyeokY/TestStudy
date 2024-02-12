@@ -10,45 +10,66 @@
 <th:block layout:fragment="contentFragment">
     <label class="bottom-line">
         <strong>
-            <h3>차량등록</h3>
+            <h3>차량 등록</h3>
         </strong>
     </label>
     <div class="div-mb"></div>
-    <form class="row g-3" action="/insertCar" method="post">
-        <div class="col-md-4">
-            <label for="" class="form-label"><strong>제조사</strong></label>
-            <select class="form-select" aria-label="Default select" name="maker">
-                <option value="현대" selected>현대</option>
-                <option value="기아">기아</option>
-                <option value="대우">대우</option>
-                <option value="벤츠">벤츠</option>
-            </select>
-        </div>
-        <div class="col-md-4">
-            <label for="" class="form-label"><strong>모델명</strong></label>
-            <input type="text" class="form-control" id="" name="modelName">
-        </div>
-        <div class="col-md-4">
-            <label for="" class="form-label"><strong>차량가격</strong></label>
-            <input type="text" class="form-control" id="" name="price">
-        </div>
-        <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary"
-                style="border-radius: 0px; text-shadow: 2px 2px rgb(0, 0, 0); width: 120px;">등록</button>
-        </div>
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+    <form action="/insertCar" method="post">
+        <table id="manage-content-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="row mb-4">
+                            <label for="" class="col-1 col-form-label"><strong>제조사</strong></label>
+                            <div class="col-3">
+                                <select class="form-select" aria-label="Default select" name="maker">
+                                    <option value="현대" selected>현대</option>
+                                    <option value="기아">기아</option>
+                                    <option value="대우">대우</option>
+                                    <option value="벤츠">벤츠</option>
+                                </select>
+                            </div>
+                            <label for="" class="col-1 col-form-label"><strong>모델명</strong></label>
+                            <div class="col-3">
+                                <input type="text" class="form-control" name="modelName">
+                            </div>
+                            <label for="" class="col-1 col-form-label"><strong>차량가격</strong></label>
+                            <div class="col-3">
+                                <input type="text" class="form-control" name="price">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row mb-4">
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary"
+                                    style="border-radius: 0px; text-shadow: 2px 2px rgb(0, 0, 0); width: 120px;">등록</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </form>
-    <div style="height: 10vh;">&nbsp;</div>
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+    <div style="height: 3vh;">&nbsp;</div>
     <label class="bottom-line">
         <strong>
-            <h3>차량목록</h3>
+            <h3>차량 목록</h3>
         </strong>
     </label>
     <div class="div-mb"></div>
     <table class="table table-hover" id="manage-content-table">
         <colgroup>
+            <col width="33%">
             <col width="*">
-            <col width="40%">
-            <col width="40%">
+            <col width="33%">
         </colgroup>
         <thead>
             <tr>
@@ -58,20 +79,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+            <tr th:each="car : ${carList}">
+                <td>#[[${car.modelNumber}]]</td>
+                <td>[[${car.modelName}]]</td>
+                <td>[[${car.maker}]]</td>
             </tr>
         </tbody>
     </table>
