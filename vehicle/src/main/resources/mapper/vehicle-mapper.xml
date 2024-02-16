@@ -46,30 +46,27 @@
     </select>
 
     <!--판매정보등록 -->
-    <!-- @@모델넘버 PK화, 모델명 넣기는 아직 못함 -->
+    <!-- @@모델넘버 PK화, 모델명 넣기는 아직 못함@@ -->
     <insert id="insertSales">
         INSERT INTO SALES_INFO (
             CUSTOMER_NAME
             , CUSTOMER_TEL
             , CAR_COLOR
-            , MODEL_NUMBER
         ) VALUES (
             #{customerName}
             , #{customerTel}
             , #{carColor}
-            , #{modelNumber}
         )
     </insert>
 
     <!-- 판매목록 보여주기 -->
-    <!-- @@셀렉트문, join 써서 다 보여주기 -->
+    <!-- @@셀렉트문, join 써서 다 보여주기@@ -->
     <select id="selectAllInfo" resultMap="salesInfo">
         SELECT SALES.MODEL_NUMBER
             , CUSTOMER_NAME
             , CUSTOMER_TEL
             , SALES_DATE
             , CAR_COLOR
-
             , MODEL_NAME
             , PRICE
         FROM SALES_INFO SALES INNER JOIN CAR_INFO CAR
