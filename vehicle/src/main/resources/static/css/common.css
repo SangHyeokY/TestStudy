@@ -48,10 +48,10 @@ body {
     text-align: center;
     vertical-align: middle;
 }
-.carList-td{
-    border-left: 1px solid rgb(222, 226, 230);
-}
 
+/* .carList-td{
+    border-left: 1px solid rgb(222, 226, 230);
+} */
 #user-menu-table {
     height: 4vh;
     width: 100%;

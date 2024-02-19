@@ -16,4 +16,8 @@ public class SalesInfoVO {
     private String carColor;
     private int modelNumber;
     private Date salesDate;
+
+    //이거 왜 안됨
+    private CarInfoVO carInfoVO;
+
 }

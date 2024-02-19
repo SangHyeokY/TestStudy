@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -20,11 +21,15 @@ public class SaleController {
     @Resource(name="saleService")
     private SaleServiceImpl saleService;
 
+    //(1)//////////////////////////////////////////////////////////////////
+
     //홈 페이지
     @GetMapping("/home")
     public String home(){
         return "content/home_content";
     }
+
+    //(2)//////////////////////////////////////////////////////////////////
 
     //차량관리 페이지
     @GetMapping("/manage")
@@ -37,23 +42,31 @@ public class SaleController {
 
     //차량관리 페이지 (등록)
     @PostMapping("/insertCar")
-    public String insertCar(CarInfoVO carInfoVO){
+    public String insertCar(CarInfoVO carInfoVO, Model model){
+        List<CarInfoVO> carList = saleService.selectCarList();
+        model.addAttribute("carList", carList);
         saleService.insertCar(carInfoVO);
         return "redirect:/manage";
     }
 
-    //차량정보등록 페이지
+    //(3)//////////////////////////////////////////////////////////////////
+
+    //차량 판매정보등록 페이지
     @GetMapping("/sales")
-    public String sales(){
+    public String sales(Model model){
+        List<CarInfoVO> carList = saleService.selectCarList();
+        model.addAttribute("carList", carList);
         return "content/sales_content";
     }
 
-    //차장정보등록 페이지 (등록)
+    //차량 판매정보등록 페이지 (등록)
     @PostMapping("/insertSales")
     public String insertSales(SalesInfoVO salesInfoVO){
         saleService.insertSales(salesInfoVO);
         return "redirect:/carList";
     }
+
+    //(4)//////////////////////////////////////////////////////////////////
 
     //판매목록 페이지
 //    @GetMapping("/carList")

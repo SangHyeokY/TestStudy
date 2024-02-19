@@ -27,7 +27,8 @@
                             </div>
                             <label for="" class="col-1 col-form-label"><strong>연락처</strong></label>
                             <div class="col-5">
-                                <input type="text" class="form-control" name="customerTel" placeholder="'-' 기호 없이 적어주십시오">
+                                <input type="text" class="form-control" name="customerTel"
+                                    placeholder="기호 없이 적어주십시오">
                             </div>
                         </div>
                     </td>
@@ -35,15 +36,19 @@
                 <tr>
                     <td>
                         <div class="row mb-4">
-                            <label for="" class="col-1 col-form-label"><strong>모델</strong></label>
-                            <div class="col-5">
-                                <select class="form-select" aria-label="Default select" name="">
-                                    <option selected>기존에 있는거 불러와</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
+                            <th:block>
+                                <label for="" class="col-1 col-form-label"><strong>모델</strong></label>
+                                <div class="col-5">
+                                    <!-- 셀렉트로 저장된 모델명들 구현 -->
+                                    <th:block>
+                                        <select class="form-select" aria-label="Default select" name="modelNumber">
+                                            <option th:each="car : ${carList}" th:value="${car.modelNumber}">
+                                                [[${car.modelName}]]
+                                            </option>
+                                        </select>
+                                    </th:block>
+                                </div>
+                            </th:block>
                             <label for="" class="col-1 col-form-label"><strong>색상</strong></label>
                             <div class="col-5">
                                 <select class="form-select" aria-label="Default select" name="carColor">
