@@ -78,6 +78,7 @@ public class SaleController {
     @GetMapping("/carList")
     public String selectAllInfo(Model model){
         //join문 덜 들어감
+        //걍 map으로 다 보내버릴까
         List<SalesInfoVO> salesList = saleService.selectAllInfo();
         model.addAttribute("salesList", salesList);
         return "content/carList_content";

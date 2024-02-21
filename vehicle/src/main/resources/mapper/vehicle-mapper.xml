@@ -52,13 +52,11 @@
             CUSTOMER_NAME
             , CUSTOMER_TEL
             , CAR_COLOR
-            , MODEL_NAME
             , MODEL_NUMBER
         ) VALUES (
             #{customerName}
             , #{customerTel}
             , #{carColor}
-            , #{modelName}
             , #{modelNumber}
         )
     </insert>
