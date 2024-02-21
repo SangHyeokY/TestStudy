@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/")
@@ -77,10 +80,10 @@ public class SaleController {
     //판매목록 상품정보리스트 페이지
     @GetMapping("/carList")
     public String selectAllInfo(Model model){
-        //join문 덜 들어감
-        //걍 map으로 다 보내버릴까
         List<SalesInfoVO> salesList = saleService.selectAllInfo();
+        List<CarInfoVO> carList = saleService.selectCarList();
         model.addAttribute("salesList", salesList);
+        model.addAttribute("carList", carList);
         return "content/carList_content";
     }
 
