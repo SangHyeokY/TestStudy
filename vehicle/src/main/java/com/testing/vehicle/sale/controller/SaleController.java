@@ -78,6 +78,7 @@ public class SaleController {
 //    }
 
     //판매목록 상품정보리스트 페이지
+    //SalesInfoVO랑 CarInfoVO 자료 넘겨주기
     @GetMapping("/carList")
     public String selectAllInfo(Model model){
         List<SalesInfoVO> salesList = saleService.selectAllInfo();
@@ -87,4 +88,9 @@ public class SaleController {
         return "content/carList_content";
     }
 
+    //테스트
+    @GetMapping("/message")
+    public String messageTest(){
+        return "test/message_test";
+    }
 }

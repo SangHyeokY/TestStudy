@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+    <form action="/sendMessage" method="post">
+        <div>
+            <h2>메세지 테스트용</h2>
+        </div>
+        <div>
+            <label>memberCode</label>
+            <input type="number">
+        </div>
+        <div>
+            <label>seatNum</label>
+            <input type="number">
+        </div>
+        <div>
+            <label>메세지를 입력해주세요</label>
+            <input type="text">
+        </div>
+        <div>
+            <input type="submit" value="전송">
+        </div>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>member</td>
+                <td>seat</td>
+                <td>message</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

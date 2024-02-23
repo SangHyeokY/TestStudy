@@ -21,7 +21,6 @@
         <collection property="carInfoVO" resultMap="carInfo"/>
     </resultMap>
 
-
     <!-- 차량등록 -->
     <insert id="insertCar">
         INSERT INTO CAR_INFO (
@@ -76,6 +75,36 @@
     </select>
 
 <!-- 모델넘버 연동이 안됨 -->
+
+
+
+    <!-- 팀 프로젝트 테스트용 resultMap -->
+    <resultMap id="message" type="com.testing.vehicle.test.testVO">
+        <id column="MESSAGE_CODE" property="messageCode"/>
+        <result column="MESSAGE_CONTENT" property="messageContent"/>
+        <result column="MESSAGE_DATE" property="messageDate"/>
+
+        <result column="MEMBER_CODE" property="memberCode"/>
+        <result column="SEAT_NUM" property="seatNum"/>
+    </resultMap>
+
+    <!-- 팀 프로젝트용 message 쿼리 -->
+    <!-- WHERE문을 통한 조건문은 나중에 -->
+    <insert id="insertMessage">
+        INSERT INTO STUDYROOM_MESSAGE (
+        MESSAGE_CONTENT
+        , MEMBER_CODE
+        , SEAT_NUM
+        ) VALUES (
+        #{messageContent}
+        , #{memberCode}
+        , #{seatNum}
+        )
+    </insert>
+
+
+
+
 
 
 </mapper>
