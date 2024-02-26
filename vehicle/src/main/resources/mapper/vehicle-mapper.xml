@@ -79,7 +79,7 @@
 
 
     <!-- 팀 프로젝트 테스트용 resultMap -->
-    <resultMap id="message" type="com.testing.vehicle.test.testVO">
+    <resultMap id="message" type="com.testing.vehicle.test.TestVO">
         <id column="MESSAGE_CODE" property="messageCode"/>
         <result column="MESSAGE_CONTENT" property="messageContent"/>
         <result column="MESSAGE_DATE" property="messageDate"/>

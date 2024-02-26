@@ -1,6 +1,13 @@
 package com.testing.vehicle.test;
 
-public class testVO {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class TestVO {
     private int messageCode;
     private String messageContent;
     private String messageDate;
