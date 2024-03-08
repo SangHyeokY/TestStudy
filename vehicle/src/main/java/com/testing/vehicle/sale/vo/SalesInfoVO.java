@@ -10,6 +10,7 @@ import java.util.Date;
 @Setter
 @ToString
 public class SalesInfoVO {
+    //SalesVO
     private int salesNumber;
     private String customerName;
     private String customerTel;
@@ -17,7 +18,7 @@ public class SalesInfoVO {
     private int modelNumber;
     private String salesDate;
 
-    //이거 왜 안됨
-    private CarInfoVO carInfoVO;
-
+    //CarInfoVO
+    private String modelName;
+    private int price;
 }

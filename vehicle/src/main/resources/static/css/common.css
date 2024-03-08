@@ -73,3 +73,10 @@ body {
     font-weight: bold;
     vertical-align: middle;
 }
+
+.caution {
+    text-align: end; 
+    font-size: smaller; 
+    padding-right: 3%; 
+    padding-bottom: 1rem;
+}

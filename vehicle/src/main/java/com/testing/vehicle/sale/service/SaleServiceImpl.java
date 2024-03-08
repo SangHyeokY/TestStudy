@@ -20,13 +20,13 @@ public class SaleServiceImpl implements SaleService{
         sqlSession.insert("vehicleMapper.insertCar", carInfoVO);
     }
 
-    //차량등록 / 리스트 표시
+    //차량 등록 / 리스트 표시
     @Override
     public List<CarInfoVO> selectCarList() {
         return sqlSession.selectList("vehicleMapper.selectCarList");
     }
 
-    //판매정보등록 / 모델명 넣기는 아직 못함
+    //판매정보 등록
     @Override
     public void insertSales(SalesInfoVO salesInfoVO) {
         sqlSession.insert("vehicleMapper.insertSales", salesInfoVO);

@@ -4,8 +4,6 @@ import com.testing.vehicle.sale.service.SaleService;
 import com.testing.vehicle.sale.service.SaleServiceImpl;
 import com.testing.vehicle.sale.vo.CarInfoVO;
 import com.testing.vehicle.sale.vo.SalesInfoVO;
-import com.testing.vehicle.test.TestServiceImpl;
-import com.testing.vehicle.test.TestVO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +24,6 @@ public class SaleController {
     @Resource(name="saleService")
     private SaleServiceImpl saleService;
 
-    @Resource(name="testService")
-    private TestServiceImpl testService;
-
     //(1)//////////////////////////////////////////////////////////////////
 
     //홈 페이지
@@ -42,7 +37,7 @@ public class SaleController {
     //차량관리 페이지
     @GetMapping("/manage")
     public String manage(Model model){
-        //리스트 표시
+        //데이터 보내기
         List<CarInfoVO> carList = saleService.selectCarList();
         model.addAttribute("carList", carList);
         return "content/manage_content";
@@ -51,8 +46,10 @@ public class SaleController {
     //차량관리 페이지 (등록)
     @PostMapping("/insertCar")
     public String insertCar(CarInfoVO carInfoVO, Model model){
+        //데이터 보내기
         List<CarInfoVO> carList = saleService.selectCarList();
         model.addAttribute("carList", carList);
+        //넣기
         saleService.insertCar(carInfoVO);
         return "redirect:/manage";
     }
@@ -62,6 +59,7 @@ public class SaleController {
     //차량 판매정보등록 페이지
     @GetMapping("/sales")
     public String sales(Model model){
+        //데이터 보내기
         List<CarInfoVO> carList = saleService.selectCarList();
         model.addAttribute("carList", carList);
         return "content/sales_content";
@@ -70,43 +68,21 @@ public class SaleController {
     //차량 판매정보등록 페이지 (등록)
     @PostMapping("/insertSales")
     public String insertSales(SalesInfoVO salesInfoVO){
+        //넣기
         saleService.insertSales(salesInfoVO);
-        return "redirect:/carList";
+        return "redirect:/sales";
     }
 
     //(4)//////////////////////////////////////////////////////////////////
 
-    //판매목록 페이지
-//    @GetMapping("/carList")
-//    public String carList(){
-//        return "content/carList_content";
-//    }
-
-    //판매목록 상품정보리스트 페이지
-    //SalesInfoVO랑 CarInfoVO 자료 넘겨주기
+    //판매목록 상품정보 리스트 페이지
     @GetMapping("/carList")
     public String selectAllInfo(Model model){
+        //데이터 보내기
         List<SalesInfoVO> salesList = saleService.selectAllInfo();
-        List<CarInfoVO> carList = saleService.selectCarList();
         model.addAttribute("salesList", salesList);
-        model.addAttribute("carList", carList);
         return "content/carList_content";
     }
 
-    ///////////////////////////////////////////////////////////////////////
-
-    //테스트
-    @GetMapping("/message")
-    public String testMessage(){
-        return "test/message_test";
-    }
-
-    //테스트 - 메세지 저장
-    @PostMapping("/sendMessage")
-    public String sendMessage(TestVO testVO){
-        testService.insertMessage(testVO);
-        System.out.println(testVO);
-        return "test/message_test";
-    }
 }
 

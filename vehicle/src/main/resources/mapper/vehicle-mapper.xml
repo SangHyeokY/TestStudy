@@ -16,9 +16,11 @@
         <result column="CUSTOMER_NAME" property="customerName"/>
         <result column="CUSTOMER_TEL" property="customerTel"/>
         <result column="CAR_COLOR" property="carColor"/>
-        <result column=" MODEL_NUMBER" property="modelNumber"/>
+        <result column="MODEL_NUMBER" property="modelNumber"/>
         <result column="SALES_DATE" property="salesDate"/>
-        <collection property="carInfoVO" resultMap="carInfo"/>
+
+        <result column="MODEL_NAME" property="modelName"/>
+        <result column="PRICE" property="price"/>
     </resultMap>
 
     <!-- 차량등록 -->
@@ -72,40 +74,8 @@
             , PRICE
         FROM SALES_INFO SALES INNER JOIN CAR_INFO CAR
         ON SALES.MODEL_NUMBER = CAR.MODEL_NUMBER
+        ORDER BY SALES_DATE DESC
     </select>
-
-<!-- 모델넘버 연동이 안됨 -->
-
-
-
-    <!-- 팀 프로젝트 테스트용 resultMap -->
-    <resultMap id="message" type="com.testing.vehicle.test.TestVO">
-        <id column="MESSAGE_CODE" property="messageCode"/>
-        <result column="MESSAGE_CONTENT" property="messageContent"/>
-        <result column="MESSAGE_DATE" property="messageDate"/>
-
-        <result column="MEMBER_CODE" property="memberCode"/>
-        <result column="SEAT_NUM" property="seatNum"/>
-    </resultMap>
-
-    <!-- 팀 프로젝트용 message 쿼리 -->
-    <!-- WHERE문을 통한 조건문은 나중에 -->
-    <insert id="insertMessage">
-        INSERT INTO STUDYROOM_MESSAGE (
-        MESSAGE_CONTENT
-        , MEMBER_CODE
-        , SEAT_NUM
-        ) VALUES (
-        #{messageContent}
-        , #{memberCode}
-        , #{seatNum}
-        )
-    </insert>
-
-
-
-
-
 
 </mapper>
 

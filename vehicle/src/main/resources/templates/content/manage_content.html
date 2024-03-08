@@ -15,6 +15,7 @@
     </label>
     <div class="div-mb"></div>
     <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="caution"><font color="red">*</font> 빈 값을 넣을 경우 등록되지 않습니다.</div>
     <form action="/insertCar" method="post">
         <table id="manage-content-table">
             <tbody>
@@ -24,10 +25,10 @@
                             <label for="" class="col-1 col-form-label"><strong>제조사</strong></label>
                             <div class="col-3">
                                 <select class="form-select" aria-label="Default select" name="maker">
-                                    <option value="현대" selected>현대</option>
+                                    <option selected></option>
+                                    <option value="현대">현대</option>
                                     <option value="기아">기아</option>
-                                    <option value="대우">대우</option>
-                                    <option value="벤츠">벤츠</option>
+                                    <option value="쌍용">쌍용</option>
                                 </select>
                             </div>
                             <label for="" class="col-1 col-form-label"><strong>모델명</strong></label>
@@ -80,7 +81,7 @@
         </thead>
         <tbody>
             <tr th:each="car : ${carList}">
-                <td>#[[${car.modelNumber}]]</td>
+                <td>[[${car.modelNumber}]]</td>
                 <td>[[${car.modelName}]]</td>
                 <td>[[${car.maker}]]</td>
             </tr>
@@ -90,7 +91,7 @@
 
 <th:block layout:fragment="content_js">
     <!-- html 파일이 열릴 때 같이 실행되는 js -->
-    <!-- <script src="/"></script> -->
+    <script src="/js/vehicle.js"></script>
 </th:block>
 
 </html>
