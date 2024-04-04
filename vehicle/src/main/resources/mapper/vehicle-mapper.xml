@@ -67,8 +67,8 @@
     <select id="selectAllInfo" resultMap="salesInfo">
         SELECT CAR.MODEL_NUMBER
             , CUSTOMER_NAME
-            , CUSTOMER_TEL
-            , SALES_DATE
+            , REGEXP_REPLACE(CUSTOMER_TEL, '(02|.{3})(.+)(.{4})', '\\1-\\2-\\3') CUSTOMER_TEL
+            , DATE_FORMAT(SALES_DATE, '%Y-%m-%d') SALES_DATE
             , CAR_COLOR
             , MODEL_NAME
             , PRICE

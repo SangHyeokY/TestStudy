@@ -70,7 +70,7 @@ public class SaleController {
     public String insertSales(SalesInfoVO salesInfoVO){
         //넣기
         saleService.insertSales(salesInfoVO);
-        return "redirect:/sales";
+        return "redirect:/carList";
     }
 
     //(4)//////////////////////////////////////////////////////////////////

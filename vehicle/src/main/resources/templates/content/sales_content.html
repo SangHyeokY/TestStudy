@@ -15,7 +15,9 @@
     </label>
     <div class="div-mb"></div>
     <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
-    <div class="caution"><font color="red">*</font> 빈 값을 넣을 경우 등록되지 않습니다.</div>
+    <div class="caution">
+        <font color="red">*</font> 빈 값을 넣을 경우 등록되지 않습니다.
+    </div>
     <form action="/insertSales" method="post">
         <table id="sales-content-table">
             <tbody>
@@ -23,12 +25,8 @@
                     <td>
                         <div class="row mb-4">
                             <label for="" class="col-1 col-form-label"><strong>구매자명</strong></label>
-                            <div class="col-5">
+                            <div class="col-11">
                                 <input type="text" class="form-control" name="customerName">
-                            </div>
-                            <label for="" class="col-1 col-form-label"><strong>연락처</strong></label>
-                            <div class="col-5">
-                                <input type="text" class="form-control" name="customerTel">
                             </div>
                         </div>
                     </td>
@@ -36,6 +34,16 @@
                 <tr>
                     <td>
                         <div class="row mb-4">
+                            <label for="" class="col-1 col-form-label"><strong>색상</strong></label>
+                            <div class="col-5">
+                                <select class="form-select" aria-label="Default select" name="carColor">
+                                    <option selected></option>
+                                    <option value="블랙">블랙</option>
+                                    <option value="화이트">화이트</option>
+                                    <option value="실버">실버</option>
+                                    <option value="레드">레드</option>
+                                </select>
+                            </div>
                             <th:block>
                                 <label for="" class="col-1 col-form-label"><strong>모델</strong></label>
                                 <div class="col-5">
@@ -49,16 +57,16 @@
                                         </select>
                                     </th:block>
                                 </div>
-                            </th:block>
-                            <label for="" class="col-1 col-form-label"><strong>색상</strong></label>
-                            <div class="col-5">
-                                <select class="form-select" aria-label="Default select" name="carColor">
-                                    <option selected></option>
-                                    <option value="블랙">블랙</option>
-                                    <option value="화이트">화이트</option>
-                                    <option value="실버">실버</option>
-                                    <option value="레드">레드</option>
-                                </select>
+                            </th:block>                           
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row mb-4">
+                            <label for="" class="col-1 col-form-label"><strong>연락처</strong></label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" name="customerTel" placeholder="- 없이 적어주세요.">
                             </div>
                         </div>
                     </td>
@@ -66,7 +74,7 @@
                 <tr>
                     <td>
                         <div class="row mb-4">
-                            <div class="col-12 text-end">
+                            <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary"
                                     style="border-radius: 0px; text-shadow: 2px 2px rgb(0, 0, 0); width: 120px;">등록</button>
                             </div>
